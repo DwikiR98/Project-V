@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For Nadinn ❤️</title>
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #ff4e7a, #ff9a9e);
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      /* 🌹 Rose Petals */
+      .petal {
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        background: radial-gradient(circle, #ff4e7a, #b3003c);
+        border-radius: 50% 50% 50% 0;
+        transform: rotate(45deg);
+        animation: fall linear infinite;
+        opacity: 0.8;
+      }
+
+      @keyframes fall {
+        0% {
+          transform: translateY(-10vh) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(110vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      /* 💌 Envelope */
+      .wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+      }
+
+      .envelope {
+        position: relative;
+        width: 300px;
+        height: 200px;
+        background: #ff6f91;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.5s;
+      }
+
+      .flap {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #ff4e7a;
+        clip-path: polygon(0 0, 100% 0, 50% 60%);
+        transform-origin: top;
+        transition: 0.6s;
+      }
+
+      .envelope.open .flap {
+        transform: rotateX(180deg);
+      }
+
+      /* 📄 Letter */
+      .letter {
+        position: absolute;
+        width: 90%;
+        top: 5%;
+        left: 5%;
+        background: white;
+        border-radius: 12px;
+        padding: 20px;
+        text-align: center;
+        transform: translateY(120%);
+        transition: 0.6s ease;
+        opacity: 0;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      .envelope.open .letter {
+        transform: translateY(-10%);
+        opacity: 1;
+      }
+
+      /* ✨ Content Styling */
+      .title {
+        font-family: "Great Vibes", cursive;
+        font-size: 28px;
+        color: #ff4e7a;
+      }
+
+      .name {
+        margin-top: 5px;
+        font-weight: 600;
+        color: #ff4e7a;
+      }
+
+      .text {
+        font-size: 14px;
+        color: #444;
+        margin: 10px 0;
+      }
+
+      .divider {
+        width: 60%;
+        height: 1px;
+        background: #eee;
+        margin: 15px auto;
+      }
+
+      .details {
+        font-size: 14px;
+        color: #444;
+        line-height: 1.6;
+      }
+
+      .details p {
+        margin: 4px 0;
+      }
+
+      /* Button */
+      .btn {
+        display: inline-block;
+        margin-top: 12px;
+        padding: 10px 16px;
+        background: #ff4e7a;
+        color: white;
+        border-radius: 20px;
+        text-decoration: none;
+        font-size: 14px;
+        transition: 0.3s;
+      }
+
+      .btn:hover {
+        background: #e63b6b;
+      }
+
+      /* 📱 Mobile */
+      @media (max-width: 480px) {
+        .envelope {
+          width: 260px;
+          height: 180px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- 🌹 Generate petals -->
+    <script>
+      for (let i = 0; i < 25; i++) {
+        let petal = document.createElement("div");
+        petal.className = "petal";
+        petal.style.left = Math.random() * 100 + "vw";
+        petal.style.animationDuration = 5 + Math.random() * 5 + "s";
+        petal.style.opacity = Math.random();
+        document.body.appendChild(petal);
+      }
+    </script>
+
+    <div class="wrapper">
+      <div class="envelope" onclick="toggleEnvelope(this)">
+        <div class="flap"></div>
+
+        <div class="letter">
+          <div class="title">Valentine Dinner 💖</div>
+          <div class="name">Dear Nadin,</div>
+
+          <div class="text">
+            I’ve been thinking… there are moments that feel even more special
+            when shared with the right person, enjoying delicious dished in a
+            warm romantic ambiance <br /><br />
+
+            So, I would love to invite you to spend this Valentine’s evening
+            with me, where we can slow down, enjoy the moment, and create
+            something quietly memorable together 🌹🌹
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="details">
+            <p><b>Date:</b> 14 February 2026</p>
+            <p><b>Time:</b> 17:00</p>
+            <p><b>Place:</b> Sear By Cook</p>
+          </div>
+
+          <a
+            class="btn"
+            href="https://www.google.com/maps/search/?api=1&query=Sear+By+Cook"
+            target="_blank"
+          >
+            View Location 📍
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function toggleEnvelope(el) {
+        el.classList.toggle("open");
+      }
+    </script>
+  </body>
+</html>
